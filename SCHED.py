@@ -9,8 +9,8 @@ if uploaded_file is not None:
     st.write("Nome del file:", uploaded_file.name)
 
     if uploaded_file.name.endswith('.csv'):
-        data = pd.read_csv(uploaded_file)
-        st.write("Anteprima del file CSV:")
+        data = pd.read_csv(uploaded_file, header=None)  # Carica senza header
+        st.write("Anteprima del file CSV (senza header):")
         st.dataframe(data)
 
     elif uploaded_file.name.endswith('.txt'):
@@ -28,12 +28,24 @@ if uploaded_file is not None:
         selected_sheet = st.selectbox("Seleziona un foglio", sheet_names)
 
         # Leggi il foglio selezionato
-        data = pd.read_excel(uploaded_file, sheet_name=selected_sheet)
+        data = pd.read_excel(uploaded_file, sheet_name=selected_sheet, header=None)  # Carica senza header
         st.write(f"Anteprima del foglio: {selected_sheet}")
         st.dataframe(data)
 
     # Aggiungi il filtro per rimuovere righe
     if isinstance(data, pd.DataFrame):  # Verifica che i dati siano un DataFrame
+        # Seleziona la riga che diventerà l'header
+        row_for_header = st.slider("Seleziona la riga da usare come header", 0, len(data)-1, 0)
+
+        if row_for_header >= 0:
+            # Imposta la riga selezionata come header
+            data.columns = data.iloc[row_for_header]
+            data = data.drop(index=row_for_header).reset_index(drop=True)
+
+            st.write(f"DataFrame con la riga {row_for_header} come header:")
+            st.dataframe(data)
+
+        # Aggiungi il filtro per rimuovere righe
         rows_to_delete = st.slider("Seleziona quante righe vuoi eliminare", 0, len(data), 0)
 
         if rows_to_delete > 0:
