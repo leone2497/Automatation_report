@@ -60,7 +60,7 @@ if uploaded_file is not None:
         if "% reale Utilizzo Schedulatore" in data.columns and "Periodo" in data.columns and "Centro" in data.columns:
             data["KPI 1"] = data["% reale Utilizzo Schedulatore"] / 100
             # Seleziona e mostra solo le colonne desiderate
-            st.write("KPI SCHEDULAZIONE (per tutte le righe):")
+            st.write("KPI SCHEDULAZIONE:")
             st.dataframe(data[['Periodo', 'Centro', 'KPI 1']])
         else:
             st.write("Le colonne 'Periodo', 'Centro' o '% reale Utilizzo Schedulatore' non sono presenti nel file.")
