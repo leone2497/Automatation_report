@@ -58,10 +58,10 @@ if uploaded_file is not None:
 
         # Creazione del KPI_SCHEDULAZIONE
         KPI_SCHEDULAZIONE = {"Periodo":['Periodo'],"Centro":['Centro'],"KPI 1": ['% reale Utilizzo Schedulatore']}
-        if "% reale Utilizzo Schedulatore" in data.columns:
-            data["KPI 1"] = data["% reale Utilizzo Schedulatore"] / 100
-            st.write("Aggiunta la colonna KPI 1:")
-            st.dataframe(data)
+        data["KPI 1"] = data["% reale Utilizzo Schedulatore"] / 100
+        data["Periodo"]=data["Periodo"]
+        data["Centro"]=data["Centro"]
+            
 
 
         # Or show just the specific KPI value
