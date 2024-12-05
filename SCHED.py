@@ -32,5 +32,16 @@ if uploaded_file is not None:
         st.write(f"Anteprima del foglio: {selected_sheet}")
         st.dataframe(data)
 
+    # Aggiungi il filtro per rimuovere righe
+    if isinstance(data, pd.DataFrame):  # Verifica che i dati siano un DataFrame
+        rows_to_delete = st.slider("Seleziona quante righe vuoi eliminare", 0, len(data), 0)
+
+        if rows_to_delete > 0:
+            # Elimina le righe selezionate
+            data = data.iloc[rows_to_delete:].reset_index(drop=True)
+            st.write(f"Righe dopo la rimozione delle prime {rows_to_delete} righe:")
+            st.dataframe(data)
+        else:
+            st.write("Nessuna riga eliminata.")
 else:
     st.write("Nessun file caricato")
