@@ -55,5 +55,12 @@ if uploaded_file is not None:
             st.dataframe(data)
         else:
             st.write("Nessuna riga eliminata.")
+
+        # Creazione del KPI_SCHEDULAZIONE
+        KPI_SCHEDULAZIONE = {"KPI 1": ['% reale Utilizzo Schedulatore']}
+        if "% reale Utilizzo Schedulatore" in data.columns:
+            data["KPI 1"] = data["% reale Utilizzo Schedulatore"] / 100
+            st.write("Aggiunta la colonna KPI 1:")
+            st.dataframe(data)
 else:
     st.write("Nessun file caricato")
