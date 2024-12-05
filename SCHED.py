@@ -1,6 +1,17 @@
 import pandas as pd
 import streamlit as st
 
+def KPI_2(Numero Medio Operatori per Run di Schedulazione, Numero Medio Giornaliero Operatori Disponibili):
+    rapporto = Numero_Medio_Operatori_per_Run / Numero_Medio_Giornaliero_Operatori_Disponibili
+    
+    if rapporto > 1:
+        return 1
+    elif rapporto > 0:
+        return rapporto
+    else:
+        return 0
+
+
 st.title("Qualità di schedulazione")
 uploaded_file = st.file_uploader("Carica un file", type=["csv", "txt", "xlsx"])
 
@@ -59,9 +70,13 @@ if uploaded_file is not None:
         # Creazione del KPI_SCHEDULAZIONE
         if "% reale Utilizzo Schedulatore" in data.columns and "Periodo" in data.columns and "Centro" in data.columns:
             data["KPI 1"] = data["% reale Utilizzo Schedulatore"] / 100
+            data["KPI 2"] = KPI_2(data["Numero Medio Operatori per Run di Schedulazione"],data["Numero Medio Giornaliero Operatori Disponibili"])
+            data["KPI 3"] = data["Orizzonte Medio"]
+            data["KPI 4"] = data["% reale Utilizzo Schedulatore"] / 100
+            data["KPI 5"] = data["% reale Utilizzo Schedulatore"] / 100
             # Seleziona e mostra solo le colonne desiderate
             st.write("KPI SCHEDULAZIONE:")
-            st.dataframe(data[['Periodo', 'Centro', 'KPI 1']])
+            st.dataframe(data[['Periodo', 'Centro', 'KPI 1','KPI 2', 'KPI 3', 'KPI 4', 'KPI 5']])
         else:
             st.write("Le colonne 'Periodo', 'Centro' o '% reale Utilizzo Schedulatore' non sono presenti nel file.")
 else:
