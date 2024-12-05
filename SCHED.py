@@ -76,8 +76,8 @@ if "preprocessed_data" in st.session_state:
         data["KPI 1"] = data["% reale Utilizzo Schedulatore"] / 100
         data["KPI 2"] = data.apply(KPI_2, axis=1)
         data["KPI 3"] = data["Orizzonte Medio"]
-        data["KPI 4"] = data["% reale Utilizzo Schedulatore"] / 100  # Placeholder logic
-        data["KPI 5"] = data["% reale Utilizzo Schedulatore"] / 100  # Placeholder logic
+        data["KPI 4"] = data["% Media Odl Validi e Schedulati"] / 100 
+        data["KPI 5"] = data["Numero Run"] / 21 
 
         # Display calculated KPIs
         st.write("KPI SCHEDULAZIONE:")
