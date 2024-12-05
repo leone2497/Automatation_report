@@ -66,6 +66,6 @@ if uploaded_file is not None:
 
         # Or show just the specific KPI value
         st.write("KPI SCHEDULAZIONE (per tutte le righe):")
-        st.dataframe(data[["KPI 1"]])
+        st.dataframe(data[['Periodo'],['Centro'],["KPI 1"]])
 else:
     st.write("Nessun file caricato")
