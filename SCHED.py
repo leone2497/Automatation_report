@@ -7,7 +7,34 @@ Sbarramento= {'KPI':[1,2,3,4,5],
               'Soglia superiore':[0.6,0.5,4,0.75,5],
               'Sbarramento':[0.25,0.15,1.5,0.4,10]
     }
-
+KPI1={'Fascia':[1,2,3,4,5],
+      'Soglie inferiori':[0,0.45,0.5,0.55,0.6],
+      'Soglia superiore':[0.45,0.5,0.55,0.6,1],
+      'Sbarramento':[0.25,0.25,0.25,0.25,0.25]
+}
+KPI3={'Fascia':[1,2,3,4,5],
+      'Soglie inferiori':[0,2,2.7,3.3,4],
+      'Soglia superiore':[2,2.7,3.3,4,100000],
+      'Sbarramento':[1.5,1.5,1.5,1.5,1.5]
+}
+KPI2={'Fascia':[1,2,3,4,5],
+      'Soglie inferiori':[0,0.25,0.33,0.42,0.5],
+      'Soglia superiore':[0.25,0.33,0.42,0.5,1],
+      'Sbarramento':[0.15,0.15,0.15,0.15,0.15]
+}
+KPI4={'Fascia':[1,2,3,4,5],
+      'Soglie inferiori':[0,0.55,0.62,0.68,0.75],
+      'Soglia superiore':[0.55,0.62,0.68,0.75,1],
+      'Sbarramento':[0.4,0.4,0.4,0.4,0.4]
+}
+KPI5={'Fascia':[1,2,3,4,5],
+      'Soglie inferiori':[0,2,3,4,5],
+      'Soglia superiore':[2,3,4,5,100000],
+      'Sbarramento':[10,10,10,10,10]
+}
+Rating={'Soglia inferiore':[0,0.2,0.4,0.6,0.8],
+      'Soglia superiore':[0.2,0.4,0.6,0.8,1]
+}
 
 
 # Function for KPI_2 calculation
