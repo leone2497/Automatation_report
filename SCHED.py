@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-age = st.sidebar.number_input("Giorni di lavoro", min_value=0, max_value=31)
+Giorni = st.sidebar.number_input("Giorni di lavoro", min_value=0, max_value=31)
 Sbarramento= {'KPI':[1,2,3,4,5],
               'Peso':[0.35,0.1,0.15,0.15,0.25],
               'Soglia inferiore':[0.45,0.25,2,0.55,2],
@@ -120,7 +120,7 @@ if "preprocessed_data" in st.session_state:
         data["KPI 2"] = data.apply(KPI_2, axis=1)
         data["KPI 3"] = data["Orizzonte Medio"]
         data["KPI 4"] = data["% Media Odl Validi e Schedulati"] / 100 
-        data["KPI 5"] = data["Numero Run"] / 21 
+        data["KPI 5"] = data["Numero Run"] / Giorni
 
         # Display calculated KPIs
         st.write("KPI SCHEDULAZIONE:")
