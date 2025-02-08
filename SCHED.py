@@ -51,6 +51,11 @@ def ranking_kpi2 (KPI):
   else:
         return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglia inferiore'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglia inferiore'].values[0])
 
+def declassament_Kpi2 (KPI):
+  if KPI < Sbarramento.loc[Sbarramento['KPI'] == 2, 'Sbarramento'].values[0]:
+        return -0.5
+  else:
+    return 0
 def ranking_kpi1 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia superiore'].values[0]:
         return 1
@@ -58,7 +63,11 @@ def ranking_kpi1 (KPI):
         return 0
   else:
         return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia inferiore'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia inferiore'].values[0])
-
+def declassament_Kpi1 (KPI):
+  if KPI < Sbarramento.loc[Sbarramento['KPI'] == 1, 'Sbarramento'].values[0]:
+        return -0,.5
+  else:
+    return 0
 def ranking_kpi3 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia superiore'].values[0]:
         return 1
@@ -66,7 +75,11 @@ def ranking_kpi3 (KPI):
         return 0
   else:
         return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia inferiore'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia inferiore'].values[0])
-
+def declassament_Kpi3 (KPI):
+  if KPI < Sbarramento.loc[Sbarramento['KPI'] == 3, 'Sbarramento'].values[0]:
+        return -0,.5
+  else:
+    return 0
 def ranking_kpi4 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia superiore'].values[0]:
         return 1
@@ -74,7 +87,11 @@ def ranking_kpi4 (KPI):
         return 0
   else:
         return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia inferiore'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia inferiore'].values[0])
-
+def declassament_Kpi4 (KPI):
+  if KPI < Sbarramento.loc[Sbarramento['KPI'] == 4, 'Sbarramento'].values[0]:
+        return -0,.5
+  else:
+    return 0
 def ranking_kpi5 (KPI):
   if KPI < Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia inferiore'].values[0]:
         return 1
@@ -82,7 +99,11 @@ def ranking_kpi5 (KPI):
         return 0
   else:
         return (Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia superiore'].values[0]- KPI) / (Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia inferiore'].values[0])
-
+def declassament_Kpi5 (KPI):
+  if KPI > Sbarramento.loc[Sbarramento['KPI'] == 5, 'Sbarramento'].values[0]:
+        return -0,.5
+  else:
+    return 0
 # Function for KPI_2 calculation
 def KPI_2(row):
     """
@@ -188,11 +209,11 @@ if "preprocessed_data" in st.session_state:
         st.write("Rating:")
         st.dataframe(data[["Periodo", "Centro", "Rating"]])
         #Declassamento
-        data["KPI 1_D"] = 
-        data["KPI 2_D"] = 
-        data["KPI 3_D"] = 
-        data["KPI 4_D"] = 
-        data["KPI 5_D"] = 
+        data["KPI 1_D"] = data["KPI 1_V"].apply(declassament_Kpi1)
+        data["KPI 2_D"] = data["KPI 2_V"].apply(declassament_Kpi2)
+        data["KPI 3_D"] = data["KPI 3_V"].apply(declassament_Kpi3)
+        data["KPI 4_D"] = data["KPI 4_V"].apply(declassament_Kpi4)
+        data["KPI 5_D"] = data["KPI 5_V"].apply(declassament_Kpi5)
       
         st.write("Declassamento:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1_D", "KPI 2_D", "KPI 3_D", "KPI 4_D", "KPI 5_D"]])
