@@ -209,11 +209,11 @@ if "preprocessed_data" in st.session_state:
         st.write("Rating:")
         st.dataframe(data[["Periodo", "Centro", "Rating"]])
         #Declassamento
-        data["KPI 1_D"] = data["KPI 1_V"].apply(declassament_Kpi1)
-        data["KPI 2_D"] = data["KPI 2_V"].apply(declassament_Kpi2)
-        data["KPI 3_D"] = data["KPI 3_V"].apply(declassament_Kpi3)
-        data["KPI 4_D"] = data["KPI 4_V"].apply(declassament_Kpi4)
-        data["KPI 5_D"] = data["KPI 5_V"].apply(declassament_Kpi5)
+        data["KPI 1_D"] = data["KPI 1"].apply(declassament_Kpi1)
+        data["KPI 2_D"] = data["KPI 2"].apply(declassament_Kpi2)
+        data["KPI 3_D"] = data["KPI 3"].apply(declassament_Kpi3)
+        data["KPI 4_D"] = data["KPI 4"].apply(declassament_Kpi4)
+        data["KPI 5_D"] = data["KPI 5"].apply(declassament_Kpi5)
       
         st.write("Declassamento:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1_D", "KPI 2_D", "KPI 3_D", "KPI 4_D", "KPI 5_D"]])
