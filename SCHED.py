@@ -176,7 +176,7 @@ if "preprocessed_data" in st.session_state:
         st.dataframe(data[["Periodo", "Centro", "KPI 1_V", "KPI 2_V", "KPI 3_V", "KPI 4_V", "KPI 5_V"]])
         #valutazione pesata
         data["KPI 1_VP"] = data["KPI 1_V"].apply(ranking_kpi1)*Sbarramento.loc[Sbarramento['KPI'] == 1, 'Peso'].values[0]
-        data["KPI 2_VP"] = data["KPI 2_V"].apply(ranking_kpi2)*Sbarramento.loc[Sbarramento['KPI'] == 1, 'Peso'].values[0]
+        data["KPI 2_VP"] = data["KPI 2_V"].apply(ranking_kpi2)*Sbarramento.loc[Sbarramento['KPI'] == 2, 'Peso'].values[0]
         data["KPI 3_VP"] = data["KPI 3_V"].apply(ranking_kpi3)*Sbarramento.loc[Sbarramento['KPI'] == 3, 'Peso'].values[0]
         data["KPI 4_VP"] = data["KPI 4_V"].apply(ranking_kpi4)*Sbarramento.loc[Sbarramento['KPI'] == 4, 'Peso'].values[0]
         data["KPI 5_VP"] = data["KPI 5_V"].apply(ranking_kpi5)*Sbarramento.loc[Sbarramento['KPI'] == 5, 'Peso'].values[0]
