@@ -164,7 +164,15 @@ if "preprocessed_data" in st.session_state:
         # Display calculated KPIs
         st.write("KPI SCHEDULAZIONE:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1", "KPI 2", "KPI 3", "KPI 4", "KPI 5"]])
-               
+        #valutazione pesata
+        data["KPI 1_VP"] = data["KPI 1"].apply(ranking_kpi1())
+        data["KPI 2_VP"] = data["KPI 2"].apply(ranking_kpi2())
+        data["KPI 3_VP"] = data["KPI 3"].apply(ranking_kpi3())
+        data["KPI 4_VP"] = data["KPI 4"].apply(ranking_kpi4())
+        data["KPI 5_VP"] = data["KPI 5"].apply(ranking_kpi5())
+
+        st.write("Valutazione pesata:")
+        st.dataframe(data[["Periodo", "Centro", "KPI 1_VP", "KPI 2_VP", "KPI 3_VP", "KPI 4_VP", "KPI 5_VP"]])
         
     else:
         st.write("Il file caricato non contiene tutte le colonne richieste:")
