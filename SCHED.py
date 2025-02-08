@@ -43,7 +43,13 @@ Rating={'Soglia inferiore':[0,0.2,0.4,0.6,0.8],
 }
 Rating=pd.DataFrame(Rating)
 
-
+def ranking_kpi1 (KPI 1):
+  if KPI 1 >= KPI1.loc[KPI1['Fascia'] == 1, 'Soglia superiore'].values[0]:
+        return 1
+  elif KPI 1 < KPI1.loc[KPI1['Fascia'] == 1, 'Soglie inferiori'].values[0]:
+        return 0
+  else:
+        return (KPI 1 - KPI1.loc[KPI1['Fascia'] == 1, 'Soglie inferiori'].values[0]) / (KPI1.loc[KPI1['Fascia'] == 1, 'Soglia superiore'].values[0] - KPI1.loc[KPI1['Fascia'] == 1, 'Soglie inferiori'].values[0])
 # Function for KPI_2 calculation
 def KPI_2(row):
     """
@@ -125,6 +131,8 @@ if "preprocessed_data" in st.session_state:
         # Display calculated KPIs
         st.write("KPI SCHEDULAZIONE:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1", "KPI 2", "KPI 3", "KPI 4", "KPI 5"]])
+               
+        
     else:
         st.write("Il file caricato non contiene tutte le colonne richieste:")
         st.write(", ".join(required_columns))
