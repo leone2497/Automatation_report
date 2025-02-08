@@ -44,44 +44,44 @@ Rating={'Soglia inferiore':[0,0.2,0.4,0.6,0.8],
 Rating=pd.DataFrame(Rating)
 
 def ranking_kpi2 (KPI):
-  if KPI >= SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 2, 'Soglia superiore'].values[0]:
+  if KPI >= Sbarramento.loc[Sbarramento['Fascia'] == 2, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI < SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 2, 'Soglie inferiori'].values[0]:
+  elif KPI < Sbarramento.loc[Sbarramento['Fascia'] == 2, 'Soglie inferiori'].values[0]:
         return 0
   else:
-        return (KPI - SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 2, 'Soglie inferiori'].values[0]) / (SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 2, 'Soglia superiore'].values[0] - SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 2, 'Soglie inferiori'].values[0])
+        return (KPI - Sbarramento.loc[Sbarramento['Fascia'] == 2, 'Soglie inferiori'].values[0]) / (Sbarramento.loc[Sbarramento['Fascia'] == 2, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['Fascia'] == 2, 'Soglie inferiori'].values[0])
 
 def ranking_kpi1 (KPI):
-  if KPI >= SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 1, 'Soglia superiore'].values[0]:
+  if KPI >= Sbarramento.loc[Sbarramento['Fascia'] == 1, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI < SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 1, 'Soglie inferiori'].values[0]:
+  elif KPI < Sbarramento.loc[Sbarramento['Fascia'] == 1, 'Soglie inferiori'].values[0]:
         return 0
   else:
-        return (KPI - SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 1, 'Soglie inferiori'].values[0]) / (SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 1, 'Soglia superiore'].values[0] - SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 1, 'Soglie inferiori'].values[0])
+        return (KPI - Sbarramento.loc[Sbarramento['Fascia'] == 1, 'Soglie inferiori'].values[0]) / (Sbarramento.loc[Sbarramento['Fascia'] == 1, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['Fascia'] == 1, 'Soglie inferiori'].values[0])
 
 def ranking_kpi3 (KPI):
-  if KPI >= SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 3, 'Soglia superiore'].values[0]:
+  if KPI >= Sbarramento.loc[Sbarramento['Fascia'] == 3, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI < SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 3, 'Soglie inferiori'].values[0]:
+  elif KPI < Sbarramento.loc[Sbarramento['Fascia'] == 3, 'Soglie inferiori'].values[0]:
         return 0
   else:
-        return (KPI - SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 3, 'Soglie inferiori'].values[0]) / (SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 3, 'Soglia superiore'].values[0] - SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 3, 'Soglie inferiori'].values[0])
+        return (KPI - Sbarramento.loc[Sbarramento['Fascia'] == 3, 'Soglie inferiori'].values[0]) / (Sbarramento.loc[Sbarramento['Fascia'] == 3, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['Fascia'] == 3, 'Soglie inferiori'].values[0])
 
 def ranking_kpi4 (KPI):
-  if KPI >= SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 4, 'Soglia superiore'].values[0]:
+  if KPI >= Sbarramento.loc[Sbarramento['Fascia'] == 4, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI < SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 4, 'Soglie inferiori'].values[0]:
+  elif KPI < Sbarramento.loc[Sbarramento['Fascia'] == 4, 'Soglie inferiori'].values[0]:
         return 0
   else:
-        return (KPI - SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 4, 'Soglie inferiori'].values[0]) / (SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 4, 'Soglia superiore'].values[0] - SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 4, 'Soglie inferiori'].values[0])
+        return (KPI - Sbarramento.loc[Sbarramento['Fascia'] == 4, 'Soglie inferiori'].values[0]) / (Sbarramento.loc[Sbarramento['Fascia'] == 4, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['Fascia'] == 4, 'Soglie inferiori'].values[0])
 
 def ranking_kpi5 (KPI):
-  if KPI >= SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 5, 'Soglia superiore'].values[0]:
+  if KPI >= Sbarramento.loc[Sbarramento['Fascia'] == 5, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI < SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 5, 'Soglie inferiori'].values[0]:
+  elif KPI < Sbarramento.loc[Sbarramento['Fascia'] == 5, 'Soglie inferiori'].values[0]:
         return 0
   else:
-        return (KPI - SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 5, 'Soglie inferiori'].values[0]) / (SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 5, 'Soglia superiore'].values[0] - SBARRAMENTO.loc[SBARRAMENTO['Fascia'] == 5, 'Soglie inferiori'].values[0])
+        return (KPI - Sbarramento.loc[Sbarramento['Fascia'] == 5, 'Soglie inferiori'].values[0]) / (Sbarramento.loc[Sbarramento['Fascia'] == 5, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['Fascia'] == 5, 'Soglie inferiori'].values[0])
 
 # Function for KPI_2 calculation
 def KPI_2(row):
@@ -164,7 +164,7 @@ if "preprocessed_data" in st.session_state:
         # Display calculated KPIs
         st.write("KPI SCHEDULAZIONE:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1", "KPI 2", "KPI 3", "KPI 4", "KPI 5"]])
-        print(SBARRAMENTO) 
+        
         #valutazione pesata
         data["KPI 1_VP"] = data["KPI 1"].apply(ranking_kpi1)
         data["KPI 2_VP"] = data["KPI 2"].apply(ranking_kpi2)
