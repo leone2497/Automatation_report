@@ -76,7 +76,7 @@ def ranking_kpi4 (KPI):
         return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia inferiore'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia inferiore'].values[0])
 
 def ranking_kpi5 (KPI):
-  if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia superiore'].values[0]:
+  if KPI > Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia superiore'].values[0]:
         return 1
   elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia inferiore'].values[0]:
         return 0
