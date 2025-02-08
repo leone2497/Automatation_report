@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 Giorni = st.sidebar.number_input("Giorni di lavoro", min_value=0, max_value=31)
 
-Tipologia_report = st.sidebar.selectbox("Tipo di dati", ["Singolo mese", "Trimestre"])
+
 Sbarramento= {'KPI':[1,2,3,4,5],
               'Peso':[0.35,0.1,0.15,0.15,0.25],
               'Soglia inferiore':[0.45,0.25,2,0.55,2],
