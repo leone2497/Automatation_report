@@ -170,6 +170,42 @@ if uploaded_file is not None:
         # Save the preprocessed data in a session state for later steps
         st.session_state["preprocessed_data"] = data
 
+if uploaded_file_2 is not None:
+    st.write("Nome del file:", uploaded_file_2.name)
+
+    # File loading
+    if uploaded_file_2.name.endswith('.csv'):
+        dat_t = pd.read_csv(uploaded_file_2, header=None)
+    elif uploaded_file_2.name.endswith('.xlsx'):
+        xls = pd.ExcelFile(uploaded_file_2)
+        sheet_names = xls.sheet_names
+        selected_sheet = st.selectbox("Seleziona un foglio", sheet_names)
+        dat_t = pd.read_excel(uploaded_file_2, sheet_name=selected_sheet, header=None)
+    else:
+        st.write("Formato file non supportato.")
+        dat_t = None
+
+    if dat_t is not None:
+        st.write("Anteprima del file caricato:")
+        st.dat_tframe(dat_t)
+
+        # Header selection
+        row_for_header = st.slider("Seleziona la riga da usare come header", 0, len(dat_t) - 1, 0)
+        if row_for_header >= 0:
+            dat_t.columns = dat_t.iloc[row_for_header]
+            dat_t = dat_t.drop(index=row_for_header).reset_index(drop=True)
+            st.write(f"dat_tFrame aggiornato con la riga {row_for_header} come header:")
+            st.dat_tframe(dat_t)
+
+        # Row deletion
+        rows_to_delete = st.slider("Seleziona quante righe vuoi eliminare", 0, len(dat_t), 0)
+        if rows_to_delete > 0:
+            dat_t = dat_t.iloc[rows_to_delete:].reset_index(drop=True)
+            st.write(f"dat_tFrame dopo la rimozione delle prime {rows_to_delete} righe:")
+            st.dat_tframe(dat_t)
+
+        # Save the preprocessed dat_t in a session state for later steps
+        st.session_state["preprocessed_dat_t"] = dat_t
 # Step 2: KPI calculation and controls
 if "preprocessed_data" in st.session_state:
     st.header("Step 2: Calcolo KPI e Validazione")
