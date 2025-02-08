@@ -116,7 +116,11 @@ def KPI_2(row):
         return rapporto
     else:
         return 0
-
+def rating_declassamneto(Declassamento,Rating):
+  if Rating+Declassamento<0:
+    return 0
+  else:
+    return Rating+Declassamento
 # Title
 st.title("Qualità di schedulazione")
 
@@ -218,7 +222,9 @@ if "preprocessed_data" in st.session_state:
         st.write("Declassamento:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1_D", "KPI 2_D", "KPI 3_D", "KPI 4_D", "KPI 5_D"]])
         data["Declassamento"] = data["KPI 1_D"]+data["KPI 2_D"] + data["KPI 3_D"] + data["KPI 4_D"] + data["KPI 5_D"] 
-        data["Rating con declassamento"]= 
+        data["Rating con declassamento"]= rating_declassamneto(data["Declassamento"],data["Rating"])
+        st.write("Rating con declassamento:")
+        st.dataframe(data[["Periodo", "Centro","Rating con declassamento"]])
     else:
         st.write("Il file caricato non contiene tutte le colonne richieste:")
         st.write(", ".join(required_columns))
