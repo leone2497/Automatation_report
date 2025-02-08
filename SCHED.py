@@ -217,13 +217,7 @@ if len(dataframes) > 1:
     # Save merged DataFrame in session state
     st.session_state["merged_data"] = merged_df
 
-    # **Download merged DataFrame as CSV**
-    @st.cache_data
-    def convert_df(df):
-        return df.to_csv(index=False).encode("utf-8")
 
-    csv = convert_df(merged_df)
-    st.download_button("Scarica il file unificato", data=csv, file_name="merged_data.csv", mime="text/csv")
 
 # Step 2: KPI calculation and controls
 if "preprocessed_data" in st.session_state:
