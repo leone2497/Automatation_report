@@ -164,6 +164,7 @@ if "preprocessed_data" in st.session_state:
         # Display calculated KPIs
         st.write("KPI SCHEDULAZIONE:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1", "KPI 2", "KPI 3", "KPI 4", "KPI 5"]])
+        print(SBARRAMENTO) 
         #valutazione pesata
         data["KPI 1_VP"] = data["KPI 1"].apply(ranking_kpi1)
         data["KPI 2_VP"] = data["KPI 2"].apply(ranking_kpi2)
