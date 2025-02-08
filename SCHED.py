@@ -55,7 +55,7 @@ def declassament_Kpi2 (KPI):
   if KPI < Sbarramento.loc[Sbarramento['KPI'] == 2, 'Sbarramento'].values[0]:
         return -0.5
   else:
-    return 0
+        return 0
 def ranking_kpi1 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia superiore'].values[0]:
         return 1
@@ -67,7 +67,7 @@ def declassament_Kpi1 (KPI):
   if KPI < Sbarramento.loc[Sbarramento['KPI'] == 1, 'Sbarramento'].values[0]:
         return -0,.5
   else:
-    return 0
+        return 0
 def ranking_kpi3 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia superiore'].values[0]:
         return 1
@@ -79,7 +79,7 @@ def declassament_Kpi3 (KPI):
   if KPI < Sbarramento.loc[Sbarramento['KPI'] == 3, 'Sbarramento'].values[0]:
         return -0,.5
   else:
-    return 0
+        return 0
 def ranking_kpi4 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia superiore'].values[0]:
         return 1
@@ -91,7 +91,7 @@ def declassament_Kpi4 (KPI):
   if KPI < Sbarramento.loc[Sbarramento['KPI'] == 4, 'Sbarramento'].values[0]:
         return -0,.5
   else:
-    return 0
+        return 0
 def ranking_kpi5 (KPI):
   if KPI < Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia inferiore'].values[0]:
         return 1
@@ -103,7 +103,7 @@ def declassament_Kpi5 (KPI):
   if KPI > Sbarramento.loc[Sbarramento['KPI'] == 5, 'Sbarramento'].values[0]:
         return -0,.5
   else:
-    return 0
+        return 0
 # Function for KPI_2 calculation
 def KPI_2(row):
     """
