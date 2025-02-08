@@ -186,7 +186,16 @@ if "preprocessed_data" in st.session_state:
         #Rating
         data["Rating"] = data["KPI 1_VP"]+data["KPI 2_VP"] + data["KPI 3_VP"] + data["KPI 4_VP"] + data["KPI 5_VP"] 
         st.write("Rating:")
-        st.dataframe(data[["Periodo", "Centro", "Rating"]])     
+        st.dataframe(data[["Periodo", "Centro", "Rating"]])
+        #Declassamento
+        data["KPI 1_D"] = 
+        data["KPI 2_D"] = 
+        data["KPI 3_D"] = 
+        data["KPI 4_D"] = 
+        data["KPI 5_D"] = 
+      
+        st.write("Declassamento:")
+        st.dataframe(data[["Periodo", "Centro", "KPI 1_D", "KPI 2_D", "KPI 3_D", "KPI 4_D", "KPI 5_D"]])
         
     else:
         st.write("Il file caricato non contiene tutte le colonne richieste:")
