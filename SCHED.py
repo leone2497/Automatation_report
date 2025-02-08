@@ -46,42 +46,42 @@ Rating=pd.DataFrame(Rating)
 def ranking_kpi2 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglie inferiori'].values[0]:
+  elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglia inferiore'].values[0]:
         return 0
   else:
-        return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglie inferiori'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglie inferiori'].values[0])
+        return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglia inferiore'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 2, 'Soglia inferiore'].values[0])
 
 def ranking_kpi1 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglie inferiori'].values[0]:
+  elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia inferiore'].values[0]:
         return 0
   else:
-        return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglie inferiori'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglie inferiori'].values[0])
+        return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia inferiore'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 1, 'Soglia inferiore'].values[0])
 
 def ranking_kpi3 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglie inferiori'].values[0]:
+  elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia inferiore'].values[0]:
         return 0
   else:
-        return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglie inferiori'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglie inferiori'].values[0])
+        return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia inferiore'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 3, 'Soglia inferiore'].values[0])
 
 def ranking_kpi4 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglie inferiori'].values[0]:
+  elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia inferiore'].values[0]:
         return 0
   else:
-        return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglie inferiori'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglie inferiori'].values[0])
+        return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia inferiore'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 4, 'Soglia inferiore'].values[0])
 
 def ranking_kpi5 (KPI):
   if KPI >= Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglie inferiori'].values[0]:
+  elif KPI < Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia inferiore'].values[0]:
         return 0
   else:
-        return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglie inferiori'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglie inferiori'].values[0])
+        return (KPI - Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia inferiore'].values[0]) / (Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia superiore'].values[0] - Sbarramento.loc[Sbarramento['KPI'] == 5, 'Soglia inferiore'].values[0])
 
 # Function for KPI_2 calculation
 def KPI_2(row):
