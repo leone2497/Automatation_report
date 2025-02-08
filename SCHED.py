@@ -130,7 +130,7 @@ st.title("Qualità di schedulazione")
 st.header("Step 1: Caricamento e Preprocessing del File")
 uploaded_file = st.file_uploader("Carica un file", type=["csv", "xlsx"])
 
-uploaded_file_2 = st.file_uploader("Carica i file per il trimestre", type=["csv", "xlsx"])
+uploaded_file_2 = st.file_uploader("Carica i file per il trimestre", type=["csv", "xlsx"],, accept_multiple_files=True)
 
 
 if uploaded_file is not None:
