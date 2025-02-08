@@ -207,6 +207,58 @@ if uploaded_file_2:
 
             # Save processed file in session state
             st.session_state[f"preprocessed_{uploaded_file.name}"] = dat_t
+
+if uploaded_file_2:
+    for uploaded_file in uploaded_file_2:
+        st.write(f"**Nome del file:** {uploaded_file.name}")
+
+        # Load file
+        if uploaded_file.name.endswith('.csv'):
+            dat_t = pd.read_csv(uploaded_file, header=None)
+        elif uploaded_file.name.endswith('.xlsx'):
+            xls = pd.ExcelFile(uploaded_file)
+            sheet_names = xls.sheet_names
+            selected_sheet = st.selectbox(f"Seleziona un foglio per {uploaded_file.name}", sheet_names)
+            dat_t = pd.read_excel(uploaded_file, sheet_name=selected_sheet, header=None)
+        else:
+            st.write("Formato file non supportato.")
+            continue  # Skip unsupported files
+
+        if dat_t is not None:
+            st.write("Anteprima del file caricato:")
+            st.dataframe(dat_t)
+
+            # Header selection
+            row_for_header = st.slider(f"Seleziona la riga da usare come header ({uploaded_file.name})", 0, len(dat_t) - 1, 0)
+            dat_t.columns = dat_t.iloc[row_for_header]
+            dat_t = dat_t.drop(index=row_for_header).reset_index(drop=True)
+            st.write("DataFrame aggiornato:")
+            st.dataframe(dat_t)
+
+            # Row deletion
+            rows_to_delete = st.slider(f"Seleziona quante righe vuoi eliminare ({uploaded_file.name})", 0, len(dat_t), 0)
+            if rows_to_delete > 0:
+                dat_t = dat_t.iloc[rows_to_delete:].reset_index(drop=True)
+
+            # Store processed DataFrame
+            dataframes.append(dat_t)
+
+# **Merge DataFrames if there are multiple files**
+if len(dataframes) > 1:
+    merged_df = pd.concat(dataframes, ignore_index=True)
+    st.write("### DataFrame Unificato:")
+    st.dataframe(merged_df)
+
+    # Save merged DataFrame in session state
+    st.session_state["merged_data"] = merged_df
+
+    # **Download merged DataFrame as CSV**
+    @st.cache_data
+    def convert_df(df):
+        return df.to_csv(index=False).encode("utf-8")
+
+    csv = convert_df(merged_df)
+    st.download_button("Scarica il file unificato", data=csv, file_name="merged_data.csv", mime="text/csv")
 # Step 2: KPI calculation and controls
 if "preprocessed_data" in st.session_state:
     st.header("Step 2: Calcolo KPI e Validazione")
