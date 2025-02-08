@@ -182,7 +182,11 @@ if "preprocessed_data" in st.session_state:
         data["KPI 5_VP"] = data["KPI 5"].apply(ranking_kpi5)*Sbarramento.loc[Sbarramento['KPI'] == 5, 'Peso'].values[0]
 
         st.write("Valutazione PESATA:")
-        st.dataframe(data[["Periodo", "Centro", "KPI 1_VP", "KPI 2_VP", "KPI 3_VP", "KPI 4_VP", "KPI 5_VP"]])      
+        st.dataframe(data[["Periodo", "Centro", "KPI 1_VP", "KPI 2_VP", "KPI 3_VP", "KPI 4_VP", "KPI 5_VP"]])
+        #Rating
+        data["Rating"] = data["KPI 1_VP"]+data["KPI 2_VP"] + data["KPI 3_VP"] + data["KPI 4_VP"] + data["KPI 5_VP"] 
+        st.write("Rating:")
+        st.dataframe(data[["Periodo", "Centro", "Rating"]])     
         
     else:
         st.write("Il file caricato non contiene tutte le colonne richieste:")
