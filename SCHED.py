@@ -222,7 +222,7 @@ if "preprocessed_data" in st.session_state:
         st.write("Declassamento:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1_D", "KPI 2_D", "KPI 3_D", "KPI 4_D", "KPI 5_D"]])
         data["Declassamento"] = data["KPI 1_D"]+data["KPI 2_D"] + data["KPI 3_D"] + data["KPI 4_D"] + data["KPI 5_D"] 
-        data["Rating con declassamento"]= rating_declassamneto(data["Declassamento"],data["Rating"])
+        data["Rating con declassamento"]= data["Declassamento"] +data["Rating"])
         st.write("Rating con declassamento:")
         st.dataframe(data[["Periodo", "Centro","Rating con declassamento"]])
     else:
