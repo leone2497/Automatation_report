@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 Giorni = st.sidebar.number_input("Giorni di lavoro", min_value=0, max_value=31)
 Sbarramento= {'KPI':[1,2,3,4,5],
-              'Peso':[0.35,1,0.15,0.15,0.25],
+              'Peso':[0.35,0.1,0.15,0.15,0.25],
               'Soglia inferiore':[0.45,0.25,2,0.55,2],
               'Soglia superiore':[0.6,0.5,4,0.75,5],
               'Sbarramento':[0.25,0.15,1.5,0.4,10]
@@ -176,7 +176,7 @@ if "preprocessed_data" in st.session_state:
         st.dataframe(data[["Periodo", "Centro", "KPI 1_V", "KPI 2_V", "KPI 3_V", "KPI 4_V", "KPI 5_V"]])
         #valutazione pesata
         data["KPI 1_VP"] = data["KPI 1_V"].apply(ranking_kpi1)*Sbarramento.loc[Sbarramento['KPI'] == 1, 'Peso'].values[0]
-        data["KPI 2_VP"] = data["KPI 2_V"].apply(ranking_kpi2)*Sbarramento.loc[Sbarramento['KPI'] == 2, 'Peso'].values[0]
+        data["KPI 2_VP"] = data["KPI 2_V"].apply(ranking_kpi2)
         data["KPI 3_VP"] = data["KPI 3_V"].apply(ranking_kpi3)*Sbarramento.loc[Sbarramento['KPI'] == 3, 'Peso'].values[0]
         data["KPI 4_VP"] = data["KPI 4_V"].apply(ranking_kpi4)*Sbarramento.loc[Sbarramento['KPI'] == 4, 'Peso'].values[0]
         data["KPI 5_VP"] = data["KPI 5_V"].apply(ranking_kpi5)*Sbarramento.loc[Sbarramento['KPI'] == 5, 'Peso'].values[0]
