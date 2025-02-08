@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 Giorni = st.sidebar.number_input("Giorni di lavoro", min_value=0, max_value=31)
 Sbarramento= {'KPI':[1,2,3,4,5],
-              'Peso':[0.35,0.1,0.15,0.15,0.25],
+              'Peso':[0.35,0.10,0.15,0.15,0.25],
               'Soglia inferiore':[0.45,0.25,2,0.55,2],
               'Soglia superiore':[0.6,0.5,4,0.75,5],
               'Sbarramento':[0.25,0.15,1.5,0.4,10]
