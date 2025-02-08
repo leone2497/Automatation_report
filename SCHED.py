@@ -181,7 +181,7 @@ if "preprocessed_data" in st.session_state:
         data["KPI 4_VP"] = data["KPI 4"].apply(ranking_kpi4)*Sbarramento.loc[Sbarramento['KPI'] == 4, 'Peso'].values[0]
         data["KPI 5_VP"] = data["KPI 5"].apply(ranking_kpi5)*Sbarramento.loc[Sbarramento['KPI'] == 5, 'Peso'].values[0]
 
-        st.write("Valutazione pesata:")
+        st.write("Valutazione:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1_VP", "KPI 2_VP", "KPI 3_VP", "KPI 4_VP", "KPI 5_VP"]])      
         
     else:
