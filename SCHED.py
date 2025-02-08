@@ -165,15 +165,24 @@ if "preprocessed_data" in st.session_state:
         st.write("KPI SCHEDULAZIONE:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1", "KPI 2", "KPI 3", "KPI 4", "KPI 5"]])
         
-        #valutazione pesata
-        data["KPI 1_VP"] = data["KPI 1"].apply(ranking_kpi1)
-        data["KPI 2_VP"] = data["KPI 2"].apply(ranking_kpi2)
-        data["KPI 3_VP"] = data["KPI 3"].apply(ranking_kpi3)
-        data["KPI 4_VP"] = data["KPI 4"].apply(ranking_kpi4)
-        data["KPI 5_VP"] = data["KPI 5"].apply(ranking_kpi5)
+        #valutazione
+        data["KPI 1_V"] = data["KPI 1"].apply(ranking_kpi1)
+        data["KPI 2_V"] = data["KPI 2"].apply(ranking_kpi2)
+        data["KPI 3_V"] = data["KPI 3"].apply(ranking_kpi3)
+        data["KPI 4_V"] = data["KPI 4"].apply(ranking_kpi4)
+        data["KPI 5_V"] = data["KPI 5"].apply(ranking_kpi5)
 
         st.write("Valutazione pesata:")
         st.dataframe(data[["Periodo", "Centro", "KPI 1_VP", "KPI 2_VP", "KPI 3_VP", "KPI 4_VP", "KPI 5_VP"]])
+        #valutazione pesata
+        data["KPI 1_VP"] = data["KPI 1"].apply(ranking_kpi1)*Sbarramento.loc[Sbarramento['KPI'] == 1, 'Peso'].values[0]
+        data["KPI 2_VP"] = data["KPI 2"].apply(ranking_kpi2)*Sbarramento.loc[Sbarramento['KPI'] == 2, 'Peso'].values[0]
+        data["KPI 3_VP"] = data["KPI 3"].apply(ranking_kpi3)*Sbarramento.loc[Sbarramento['KPI'] == 3, 'Peso'].values[0]
+        data["KPI 4_VP"] = data["KPI 4"].apply(ranking_kpi4)*Sbarramento.loc[Sbarramento['KPI'] == 4, 'Peso'].values[0]
+        data["KPI 5_VP"] = data["KPI 5"].apply(ranking_kpi5)*Sbarramento.loc[Sbarramento['KPI'] == 5, 'Peso'].values[0]
+
+        st.write("Valutazione pesata:")
+        st.dataframe(data[["Periodo", "Centro", "KPI 1_VP", "KPI 2_VP", "KPI 3_VP", "KPI 4_VP", "KPI 5_VP"]])      
         
     else:
         st.write("Il file caricato non contiene tutte le colonne richieste:")
