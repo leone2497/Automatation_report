@@ -43,13 +43,42 @@ Rating={'Soglia inferiore':[0,0.2,0.4,0.6,0.8],
 }
 Rating=pd.DataFrame(Rating)
 
-def ranking_kpi1 (KPI 1):
-  if KPI 1 >= KPI1.loc[KPI1['Fascia'] == 1, 'Soglia superiore'].values[0]:
+def ranking_kpi1 (KPI):
+  if KPI >= KPI1.loc[KPI1['Fascia'] == 1, 'Soglia superiore'].values[0]:
         return 1
-  elif KPI 1 < KPI1.loc[KPI1['Fascia'] == 1, 'Soglie inferiori'].values[0]:
+  elif KPI < KPI1.loc[KPI1['Fascia'] == 1, 'Soglie inferiori'].values[0]:
         return 0
   else:
-        return (KPI 1 - KPI1.loc[KPI1['Fascia'] == 1, 'Soglie inferiori'].values[0]) / (KPI1.loc[KPI1['Fascia'] == 1, 'Soglia superiore'].values[0] - KPI1.loc[KPI1['Fascia'] == 1, 'Soglie inferiori'].values[0])
+        return (KPI - KPI1.loc[KPI1['Fascia'] == 1, 'Soglie inferiori'].values[0]) / (KPI1.loc[KPI1['Fascia'] == 1, 'Soglia superiore'].values[0] - KPI1.loc[KPI1['Fascia'] == 1, 'Soglie inferiori'].values[0])
+
+def ranking_kpi2 (KPI):
+  if KPI >= KPI2.loc[KPI2['Fascia'] == 1, 'Soglia superiore'].values[0]:
+        return 1
+  elif KPI < KPI2.loc[KPI2['Fascia'] == 1, 'Soglie inferiori'].values[0]:
+        return 0
+  else:
+        return (KPI - KPI2.loc[KPI2['Fascia'] == 1, 'Soglie inferiori'].values[0]) / (KPI2.loc[KPI2['Fascia'] == 1, 'Soglia superiore'].values[0] - KPI2.loc[KPI2['Fascia'] == 1, 'Soglie inferiori'].values[0])
+def ranking_kpi3 (KPI):
+  if KPI >= KPI3.loc[KPI3['Fascia'] == 1, 'Soglia superiore'].values[0]:
+        return 1
+  elif KPI < KPI3.loc[KPI3['Fascia'] == 1, 'Soglie inferiori'].values[0]:
+        return 0
+  else:
+        return (KPI - KPI3.loc[KPI3['Fascia'] == 1, 'Soglie inferiori'].values[0]) / (KPI3.loc[KPI3['Fascia'] == 1, 'Soglia superiore'].values[0] - KPI3.loc[KPI3['Fascia'] == 1, 'Soglie inferiori'].values[0])
+def ranking_kpi4 (KPI):
+  if KPI  >= KPI4.loc[KPI4['Fascia'] == 1, 'Soglia superiore'].values[0]:
+        return 1
+  elif KPI  < KPI4.loc[KPI4['Fascia'] == 1, 'Soglie inferiori'].values[0]:
+        return 0
+  else:
+        return (KPI  - KPI4.loc[KPI4['Fascia'] == 1, 'Soglie inferiori'].values[0]) / (KPI4.loc[KPI4['Fascia'] == 1, 'Soglia superiore'].values[0] - KPI4.loc[KPI4['Fascia'] == 1, 'Soglie inferiori'].values[0])
+ef ranking_kpi5 (KPI):
+  if KPI >= KPI5.loc[KPI1['Fascia'] == 1, 'Soglia superiore'].values[0]:
+        return 1
+  elif KPI < KPI5.loc[KPI5['Fascia'] == 1, 'Soglie inferiori'].values[0]:
+        return 0
+  else:
+        return (KPI - KPI5.loc[KPI5['Fascia'] == 1, 'Soglie inferiori'].values[0]) / (KPI5.loc[KPI5['Fascia'] == 1, 'Soglia superiore'].values[0] - KPI5.loc[KPI5['Fascia'] == 1, 'Soglie inferiori'].values[0])    
 # Function for KPI_2 calculation
 def KPI_2(row):
     """
