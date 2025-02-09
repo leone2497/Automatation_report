@@ -216,11 +216,15 @@ if len(dataframes) > 1:
 
     # Save merged DataFrame in session state
     st.session_state["merged_data"] = merged_df
-    merged_df ["KPI1_VT"]= 
-    merged_df ["KPI2_VT"]=
-    merged_df ["KPI3_VT"]=
-    merged_df ["KPI4_VT"]=
-    merged_df ["KPI5_VT"]=
+    data_t= merged_data.pivot(index="Centro",columns="Periodo",values="OdL Consuntivati")
+    st.write("Datafreame odl consuntivati")
+    st.dataframe(data_t)
+  
+    #merged_df ["KPI1_VT"]= 
+    #merged_df ["KPI2_VT"]=
+    #merged_df ["KPI3_VT"]=
+    #merged_df ["KPI4_VT"]=
+    #merged_df ["KPI5_VT"]=
 
 
 # Step 2: KPI calculation and controls
