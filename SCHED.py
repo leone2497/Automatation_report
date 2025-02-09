@@ -217,18 +217,17 @@ if len(dataframes) > 1:
     # Save merged DataFrame in session state
     st.session_state["merged_data"] = merged_df
     if "merged_data" in st.session_state:
-    merged_data = st.session_state["merged_data"]
+      merged_data = st.session_state["merged_data"]
     
     # Check if required columns exist
-    required_columns = {"Centro", "Periodo", "OdL Consuntivati"}
-    if required_columns.issubset(merged_data.columns):
-        # Pivot DataFrame
+      required_columns = {"Centro", "Periodo", "OdL Consuntivati"}
+      if required_columns.issubset(merged_data.columns):
         data_t = merged_data.pivot(index="Centro", columns="Periodo", values="OdL Consuntivati")
 
         # Display result
         st.write("### Tabella Pivotata")
         st.dataframe(data_t)
-    else:
+      else:
         st.error(f"Manca una delle colonne richieste: {required_columns - set(merged_data.columns)}")
 
   
